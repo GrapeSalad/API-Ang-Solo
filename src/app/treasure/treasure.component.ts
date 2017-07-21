@@ -18,7 +18,6 @@ export class TreasureComponent implements OnInit {
   noResultPhysOutput: boolean=false;
   noResultLatLongOutput: boolean=false;
   improperData: boolean=false;
-  audio = <HTMLAudioElement>document.getElementById("audio");
 
   constructor(private router: Router, private latLong: LatLongService, private physAddy: PhysicalAddressService) { }
 
@@ -38,8 +37,6 @@ export class TreasureComponent implements OnInit {
       this.getLocationByLatLong(lat, long);
     }else{
       this.improperData = true;
-      // this.audio.play();
-      console.log(this.audio);
     }
 
   }

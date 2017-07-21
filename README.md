@@ -2,8 +2,10 @@
 #### A simple website for Google Geo-Caching
 
 This project was built using [Angular CLI](https://github.com/angular/angular-cli), [Angular 2](https://angular.io/), [Typescript](https://www.typescriptlang.org/) and [NPM](https://www.npmjs.com/) for an Epicodus Solo Project 7/21/17.
+<hr>
+## **Specs**
 
-## Component Checklist
+### Component Checklist
 
 | Component | Completed? |
 |---|---|
@@ -14,9 +16,18 @@ This project was built using [Angular CLI](https://github.com/angular/angular-cl
 | show/hide divs | X |
 | play audio | X |
 
+| User Stories | Process |
+|---|---|
+| Enter in the latitude and longitude of a known geocache and receive the corresponding physical address of its location, see the most specific result available | Build service to house function to receive data from API call, build method to access API function, build form to provide user input |
+| Enter in the physical address of a geocache, receive the corresponding latitude and longitude | Build service to house function to receive data from API call (different than previous), build method to access API function/service, build form to get user input |
+| Only view necessary sections of website | Show/Hide sections using `*ngIf` |
+| Hunch Hunch, What what? | Buh Bo |
+
+
+<hr>
 ## Project Build
 Download from the [repo](https://github.com/GrapeSalad/API-Ang-Solo.git)
-Run `ng -v` to ensure than your Angular is version 4.
+Run `ng -v` to ensure than your Angular is version **4**.
 
 | If Not Run One of these Commands |
 | --- |

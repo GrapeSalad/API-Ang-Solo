@@ -1,6 +1,6 @@
 <div id="content">
   <div id="textContent">
-    <h3>YARR BOOTY is FUN!!</h3>
+    <h3>YARR finding BOOTY is FUN!!</h3>
 
     <p>Get physical to see the most specific physial address based on Latitude and Longitude of a known BOOTY</p>
     <button (click)="showLatLongForm()">Lets get Physical!</button>
@@ -42,7 +42,7 @@
 
       <div *ngIf="latLongOutput && !noResult">
         <p>Latitude: {{latLongOutput.results[0].geometry.location.lat}}</p>
-        <p>Latitude: {{latLongOutput.results[0].geometry.location.lng}}</p>
+        <p>Longitude: {{latLongOutput.results[0].geometry.location.lng}}</p>
       </div>
 
       <div *ngIf="noResult">

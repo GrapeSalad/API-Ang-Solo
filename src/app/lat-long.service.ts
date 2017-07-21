@@ -8,7 +8,7 @@ export class LatLongService {
 
   constructor(private http: Http) { }
 
-  getLocationLatLong(lat: string, long: string){
+  getLocationsPhysicalAddress(lat: string, long: string){
     return this.http.get("https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+long+"&key="+geoKey);
   }
 

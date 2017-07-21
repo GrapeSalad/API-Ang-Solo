@@ -8,7 +8,7 @@ export class PhysicalAddressService {
 
   constructor(private http: Http) { }
 
-  getLocationPhysAddy(streetAddyNum: number, streetName: string, roadType: string, city: string, state: string){
+  getLocationsLatLong(streetAddyNum: number, streetName: string, roadType: string, city: string, state: string){
     return this.http.get("https://maps.googleapis.com/maps/api/geocode/json?address="+streetAddyNum+"+"+streetName+"+"+roadType+",+"+city+",+"+state+"&key="+geoKey)
   }
 

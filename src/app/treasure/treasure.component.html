@@ -36,11 +36,13 @@
       <button (click)="getLatLongByPhysAddy(streetAddyNum.value, streetName.value, roadType.value, city.value, state.value);false">HIDE BOOTY!</button>
     </form>
     <div id="output">
-      <div *ngIf="physAddyOutput && !noResult">
+      <h3>YARRR X MARKS THE SPOT</h3>
+      <div class="centeredText" *ngIf="physAddyOutput && !noResult">
         <p>{{physAddyOutput.results[0].formatted_address}}</p>
+        <p class="rapscallion">ARRRR YE FOUND MY BOOTY, FILTHY LANDLUBBERS</p>
       </div>
 
-      <div *ngIf="latLongOutput && !noResult">
+      <div class="centeredText" *ngIf="latLongOutput && !noResult">
         <p>Latitude: {{latLongOutput.results[0].geometry.location.lat}}</p>
         <p>Longitude: {{latLongOutput.results[0].geometry.location.lng}}</p>
       </div>
@@ -49,6 +51,7 @@
         <p>No Results Found, Please try again</p>
         <img src=".././assets/img/hunchHunch.gif" alt="What What? Buh Bo">
         <audio autoplay><source src="././assets/sounds/archerHunchHunch.mp3" type="audio/mpeg">Your Broweser Does not support the audio element</audio>
+        <p class="rapscallion">BWAH HA HA I'VE HIDDEN IT IN THE NUMBERS THIS TIME</p>
       </div>
 
       <div *ngIf="improperData">

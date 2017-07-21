@@ -37,7 +37,7 @@ p, label {
   font-size: 24px;
 }
 
-button {
+button, #output .rapscallion {
   font-size: 24px;
   font-family: Rapscallion;
 }
@@ -48,6 +48,7 @@ button {
   margin: -10px auto;
   background: url("/assets/img/islandBG.jpg") no-repeat center;
   text-align: center;
+  z-index: ;
 }
 
 #textContent{
@@ -60,9 +61,10 @@ button {
   left: 99px;
   top: -10px;
   border-radius: 0 0 20px 20px;
+  z-index: 2;
 }
 
 #output p {
   font-size: 24px;
-  font-family: DeadHand !important;
+  font-family: DeadHand;
 }

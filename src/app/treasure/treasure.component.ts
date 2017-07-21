@@ -13,8 +13,8 @@ import { PhysicalAddressService } from '../physical-address.service';
 export class TreasureComponent implements OnInit {
   physAddyOutput: any[]=null;
   latLongOutput: any[]=null;
-  latLongInput: boolean=false;
   physAddyInput: boolean=false;
+  latLongInput: boolean=false;
   noResult: boolean=false;
   improperData: boolean=false;
 
@@ -35,14 +35,13 @@ export class TreasureComponent implements OnInit {
     if(((parseFloat(lat) >= -90) && (parseFloat(lat) <= 90)) && ((parseFloat(long) >= -180) && (parseFloat(long) <= 180))){
       this.getLocationByLatLong(lat, long);
     }else{
+      this.noResult = false;
       this.improperData = true;
     }
-
   }
 
   getLocationByLatLong(lat: string, long: string){
-    this.latLong.getLocationLatLong(lat, long).subscribe(response =>{
-      console.log(response.json());
+    this.latLong.getLocationsPhysicalAddress(lat, long).subscribe(response =>{
       if(response.json().status === "ZERO_RESULTS"){
         this.noResult = true;
         this.physAddyOutput = null;
@@ -50,6 +49,7 @@ export class TreasureComponent implements OnInit {
         this.improperData = false;
         this.noResult = false;
         this.physAddyOutput = response.json();
+        this.latLongOutput = null;
       }
     });
     this.latLongInput = false;
@@ -57,13 +57,15 @@ export class TreasureComponent implements OnInit {
   }
 
   getLatLongByPhysAddy(streetAddyNum: number, streetName: string, roadType: string, city: string, state: string){
-    this.physAddy.getLocationPhysAddy(streetAddyNum, streetName, roadType, city, state).subscribe(response => {
+    this.physAddy.getLocationsLatLong(streetAddyNum, streetName, roadType, city, state).subscribe(response => {
       if(response.json().status === "ZERO_RESULTS"){
         this.noResult = true;
+        this.latLongOutput = null;
       }else{
         this.improperData = false;
         this.noResult = false;
         this.latLongOutput = response.json();
+        this.physAddyOutput = null;
       }
     });
     this.physAddyInput = false;

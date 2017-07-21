@@ -1,3 +1,56 @@
-<p>
-  treasure works!
-</p>
+<h3>YARR BOOTY is FUN!!</h3>
+
+<p>Get physical to see the most specific physial address based on Latitude and Longitude of a known BOOTY</p>
+<button (click)="showLatLongForm()">Lets get Physical!</button>
+<form *ngIf="latLongInput">
+  <label>Latitude</label>
+  <input #lat>
+  <label>Longitude</label>
+  <input #long>
+  <button (click)="testLatLongValues(lat.value, long.value);false">Get BOOTY!</button>
+</form>
+
+<p>Get the latitude and longitude of a physical address where I hid the BOOTY</p>
+<button (click)="showPhysAddyForm()">Numerical Precision!</button>
+<form *ngIf="physAddyInput">
+  <label>Street Address Number</label>
+  <input type="number" #streetAddyNum>
+  <label>Street Name</label>
+  <input #streetName>
+  <label>Road Type</label>
+    <select #roadType>
+      <option value="Road">Road</option>
+      <option value="Avenue">Avenue</option>
+      <option value="Parkway">Parkway</option>
+      <option value="Highway">Highway</option>
+      <option value="Circle">Circle</option>
+      <option value="Court">Court</option>
+      <option value="Street">Street</option>
+    </select>
+  <label>City</label>
+  <input #city>
+  <label>State (Two Letter Format)</label>
+  <input #state>
+  <button (click)="getLatLongByPhysAddy(streetAddyNum.value, streetName.value, roadType.value, city.value, state.value);false">HIDE BOOTY!</button>
+</form>
+
+<div *ngIf="physAddyOutput && !noResult">
+  <p>{{physAddyOutput.results[0].formatted_address}}</p>
+</div>
+
+<div *ngIf="latLongOutput && !noResult">
+  <p>Latitude: {{latLongOutput.results[0].geometry.location.lat}}</p>
+  <p>Latitude: {{latLongOutput.results[0].geometry.location.lng}}</p>
+</div>
+
+<div *ngIf="noResult">
+  <p>No Results Found, Please try again</p>
+  <img src=".././assets/img/hunchHunch.gif" alt="What What? Buh Bo">
+  <audio id="audio" src=".././assets/sounds/archerHunchHunch.mp3" autostart="false">Audio</audio>
+</div>
+
+<div *ngIf="improperData">
+  <p>Improper Data Entered, try again</p>
+  <img src=".././assets/img/hunchHunch.gif" alt="What What? Buh Bo">
+  <audio id="audio" type="mpeg" src=".././assets/sounds/archerHunchHunch.mp3" autostart="false"></audio>
+</div>

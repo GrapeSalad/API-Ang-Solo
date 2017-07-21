@@ -4,14 +4,28 @@
     src: url(/assets/fonts/ryan-splint_rapscallion/RAPSCALL.TTF);
 }
 
+@font-face {
+  font-family: Deadhand;
+  src: url(/assets/fonts/gemfonts_treasure-map-deadhand/Treamd.ttf)
+}
+
 body {
-  background-image: url("/assets/img/hexBG.jpg");
+  background-image: url("/assets/img/hexBG.jpg") ;
+  background-attachment: fixed;
+  background-size: fill;
   font-family: Rapscallion;
 }
 
 h1 {
   font-size: 70px;
   text-align: center;
+  height: 100px;
+  width: 900px;
+  margin: 20px auto 30px;
+  padding: 20px 0 0;
+  border: 1px solid #3E606F;
+  border-radius: 25px;
+  background: rgba(252, 255, 245, .5);
 }
 
 h3 {
@@ -26,4 +40,29 @@ p, label {
 button {
   font-size: 24px;
   font-family: Rapscallion;
+}
+
+#content{
+  width: 760px;
+  height: 980px;
+  margin: -10px auto;
+  background: url("/assets/img/islandBG.jpg") no-repeat center;
+  text-align: center;
+}
+
+#textContent{
+  width: 542px;
+  margin: 50px auto 0;
+  padding: 0 10px 20px;
+  background: rgba(209, 219, 189, .8);
+  float: left;
+  position: relative;
+  left: 99px;
+  top: -10px;
+  border-radius: 0 0 20px 20px;
+}
+
+#output p {
+  font-size: 24px;
+  font-family: DeadHand !important;
 }

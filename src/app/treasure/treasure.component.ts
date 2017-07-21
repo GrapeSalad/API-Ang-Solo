@@ -15,8 +15,7 @@ export class TreasureComponent implements OnInit {
   latLongOutput: any[]=null;
   latLongInput: boolean=false;
   physAddyInput: boolean=false;
-  noResultPhysOutput: boolean=false;
-  noResultLatLongOutput: boolean=false;
+  noResult: boolean=false;
   improperData: boolean=false;
 
   constructor(private router: Router, private latLong: LatLongService, private physAddy: PhysicalAddressService) { }
@@ -43,26 +42,32 @@ export class TreasureComponent implements OnInit {
 
   getLocationByLatLong(lat: string, long: string){
     this.latLong.getLocationLatLong(lat, long).subscribe(response =>{
+      console.log(response.json());
       if(response.json().status === "ZERO_RESULTS"){
-        this.noResultPhysOutput = true;
+        this.noResult = true;
+        this.physAddyOutput = null;
       }else{
-        this.noResultPhysOutput = false;
+        this.improperData = false;
+        this.noResult = false;
         this.physAddyOutput = response.json();
       }
     });
     this.latLongInput = false;
+    this.physAddyInput = false;
   }
 
   getLatLongByPhysAddy(streetAddyNum: number, streetName: string, roadType: string, city: string, state: string){
     this.physAddy.getLocationPhysAddy(streetAddyNum, streetName, roadType, city, state).subscribe(response => {
       if(response.json().status === "ZERO_RESULTS"){
-        this.noResultLatLongOutput = true;
+        this.noResult = true;
       }else{
-        this.noResultLatLongOutput = false;
+        this.improperData = false;
+        this.noResult = false;
         this.latLongOutput = response.json();
       }
     });
     this.physAddyInput = false;
+    this.latLongInput = false;
   }
 
 }
